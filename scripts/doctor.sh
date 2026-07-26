@@ -11,17 +11,25 @@ set -o pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
+###############################################################################
+# Modules
+###############################################################################
+
 # shellcheck disable=SC1091
 source "$PROJECT_ROOT/lib/common.sh"
 
 # shellcheck disable=SC1091
 source "$PROJECT_ROOT/modules/system.sh"
 
+# shellcheck disable=SC1091
+source "$PROJECT_ROOT/modules/cpu.sh"
+
 main() {
 
     print_header "WSL Developer Toolkit Doctor"
 
     system_info
+    cpu_info
 
     echo
 
