@@ -19,10 +19,16 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$PROJECT_ROOT/lib/common.sh"
 
 # shellcheck disable=SC1091
+source "$PROJECT_ROOT/lib/format.sh"
+
+# shellcheck disable=SC1091
 source "$PROJECT_ROOT/modules/system.sh"
 
 # shellcheck disable=SC1091
 source "$PROJECT_ROOT/modules/cpu.sh"
+
+# shellcheck disable=SC1091
+source "$PROJECT_ROOT/modules/memory.sh"
 
 main() {
 
@@ -30,6 +36,7 @@ main() {
 
     system_info
     cpu_info
+    memory_info
 
     echo
 

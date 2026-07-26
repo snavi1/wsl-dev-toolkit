@@ -54,7 +54,7 @@ get_current_cpu_frequency() {
         )
 
         if [[ -n "$freq" ]]; then
-            printf "%.2f MHz\n" "$freq"
+            format_frequency "$freq"
             return
         fi
     fi
@@ -80,7 +80,7 @@ get_max_cpu_frequency() {
     max=$(get_lscpu_value "$1" "CPU max MHz")
 
     if [[ "$max" != "N/A" ]]; then
-        printf "%s MHz\n" "$max"
+        format_frequency "$max"
         return
     fi
 
