@@ -1,0 +1,37 @@
+# =====================================
+# WSL Developer Toolkit
+# Git Ignore File
+# =====================================
+
+# Reports
+reports/archive/
+reports/latest.*
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Editor settings
+.vscode/
+.idea/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Shell history
+.history
