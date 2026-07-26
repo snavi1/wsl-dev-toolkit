@@ -30,6 +30,9 @@ source "$PROJECT_ROOT/modules/cpu.sh"
 # shellcheck disable=SC1091
 source "$PROJECT_ROOT/modules/memory.sh"
 
+# shellcheck disable=SC1091
+source "$PROJECT_ROOT/modules/storage.sh"
+
 main() {
 
     print_header "WSL Developer Toolkit Doctor"
@@ -37,6 +40,7 @@ main() {
     system_info
     cpu_info
     memory_info
+    storage_info
 
     echo
 
