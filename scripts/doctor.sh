@@ -33,6 +33,9 @@ source "$PROJECT_ROOT/modules/memory.sh"
 # shellcheck disable=SC1091
 source "$PROJECT_ROOT/modules/storage.sh"
 
+# shellcheck disable=SC1091
+source "$PROJECT_ROOT/lib/platform.sh"
+
 main() {
 
     print_header "WSL Developer Toolkit Doctor"
