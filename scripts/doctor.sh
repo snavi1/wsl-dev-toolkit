@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
-# =============================================================================
+###############################################################################
 # WSL Developer Toolkit
 # Doctor Command
-# =============================================================================
+###############################################################################
 
 set -o errexit
 set -o nounset
@@ -12,7 +12,7 @@ set -o pipefail
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 ###############################################################################
-# Modules
+# Libraries
 ###############################################################################
 
 # shellcheck disable=SC1091
@@ -20,6 +20,13 @@ source "$PROJECT_ROOT/lib/common.sh"
 
 # shellcheck disable=SC1091
 source "$PROJECT_ROOT/lib/format.sh"
+
+# shellcheck disable=SC1091
+source "$PROJECT_ROOT/lib/platform.sh"
+
+###############################################################################
+# Modules
+###############################################################################
 
 # shellcheck disable=SC1091
 source "$PROJECT_ROOT/modules/system.sh"
@@ -34,7 +41,11 @@ source "$PROJECT_ROOT/modules/memory.sh"
 source "$PROJECT_ROOT/modules/storage.sh"
 
 # shellcheck disable=SC1091
-source "$PROJECT_ROOT/lib/platform.sh"
+source "$PROJECT_ROOT/modules/network.sh"
+
+###############################################################################
+# Main
+###############################################################################
 
 main() {
 
@@ -44,6 +55,7 @@ main() {
     cpu_info
     memory_info
     storage_info
+    network_info
 
     echo
 
