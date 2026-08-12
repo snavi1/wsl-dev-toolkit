@@ -43,6 +43,9 @@ source "$PROJECT_ROOT/modules/storage.sh"
 # shellcheck disable=SC1091
 source "$PROJECT_ROOT/modules/network.sh"
 
+# shellcheck disable=SC1091
+source "$PROJECT_ROOT/modules/gpu.sh"
+
 ###############################################################################
 # Main
 ###############################################################################
@@ -56,6 +59,7 @@ main() {
     memory_info
     storage_info
     network_info
+    gpu_info
 
     echo
 
