@@ -46,6 +46,9 @@ source "$PROJECT_ROOT/modules/network.sh"
 # shellcheck disable=SC1091
 source "$PROJECT_ROOT/modules/gpu.sh"
 
+# shellcheck disable=SC1091
+source "$PROJECT_ROOT/modules/docker.sh"
+
 ###############################################################################
 # Main
 ###############################################################################
@@ -60,6 +63,7 @@ main() {
     storage_info
     network_info
     gpu_info
+    docker_info_module
 
     echo
 
