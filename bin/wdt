@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-#
-# =============================================================================
+
+###############################################################################
 # WSL Developer Toolkit
-# Main CLI
-# =============================================================================
+###############################################################################
 
 set -o errexit
 set -o nounset
@@ -11,11 +10,11 @@ set -o pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-# # shellcheck disable=SC1091
-source "$PROJECT_ROOT/lib/common.sh"
+VERSION_FILE="$PROJECT_ROOT/VERSION"
 
-show_help() {
-    cat <<EOF
+usage() {
+
+cat << EOF
 
 WSL Developer Toolkit
 
@@ -25,33 +24,48 @@ Usage:
 
 Commands
 
-    doctor      Check workstation health
-    lint        Lint project shell scripts
+    doctor      Run complete system diagnostics
     version     Show toolkit version
     help        Show this help
 
+Examples
+
+    wdt doctor
+    wdt version
+    wdt help
+
 EOF
+
+}
+
+show_version() {
+
+    if [[ -f "$VERSION_FILE" ]]; then
+        cat "$VERSION_FILE"
+    else
+        echo "Unknown"
+    fi
 }
 
 case "${1:-help}" in
 
-    version)
-        get_version
+    doctor)
+        exec "$PROJECT_ROOT/scripts/doctor.sh"
+        ;;
+
+    version|-v|--version)
+        show_version
         ;;
 
     help|-h|--help)
-        show_help
-        ;;
-
-    doctor)
-        "$PROJECT_ROOT/scripts/doctor.sh"
-        ;;
-
-    lint)
-        "$PROJECT_ROOT/scripts/lint.sh"
+        usage
         ;;
 
     *)
-        die "Unknown command: $1"
+        echo "Unknown command: $1"
+        echo
+        usage
+        exit 1
         ;;
+
 esac
