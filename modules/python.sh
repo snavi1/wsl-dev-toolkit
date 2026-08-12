@@ -123,6 +123,26 @@ get_conda_environment() {
 ###############################################################################
 # Return number of Conda environments.
 ###############################################################################
+get_conda_environment_count() {
+
+    local count
+
+    count="$(
+        conda env list 2>/dev/null |
+        awk '
+            /^[[:space:]]*#/ { next }
+            /^[[:space:]]*$/ { next }
+            {
+                count++
+            }
+            END {
+                print count + 0
+            }
+        '
+    )"
+
+    printf "%s\n" "${count:-0}"
+}
 ###############################################################################
 # Return Conda environment names.
 ###############################################################################

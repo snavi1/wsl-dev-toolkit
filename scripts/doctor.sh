@@ -52,6 +52,9 @@ source "$PROJECT_ROOT/modules/docker.sh"
 # shellcheck disable=SC1091
 source "$PROJECT_ROOT/modules/python.sh"
 
+# shellcheck disable=SC1091
+source "$PROJECT_ROOT/modules/kubernetes.sh"
+
 ###############################################################################
 # Main
 ###############################################################################
@@ -68,6 +71,7 @@ main() {
     gpu_info
     docker_info_module
     python_info
+    kubernetes_info
 
     echo
 
