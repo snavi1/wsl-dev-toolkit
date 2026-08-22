@@ -4,7 +4,7 @@ A modular Bash-based diagnostic toolkit for inspecting and validating a WSL2 dev
 
 ## Current Version
 
-`0.5.0-dev`
+`0.5.0`
 
 ## Overview
 
@@ -120,3 +120,9 @@ The `doctor` command reports the current state of the development workstation ac
 - Terraform installation and configuration
 
 The diagnostic output is informational. A missing optional tool or unavailable service is reported rather than treated as a project failure.
+
+## Attribution
+
+WSL Developer Toolkit is maintained by Avinash N.
+
+The project was developed collaboratively with AI assistance.
